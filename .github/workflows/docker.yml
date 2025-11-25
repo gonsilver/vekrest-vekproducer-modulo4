@@ -48,7 +48,7 @@ jobs:
           GH_OWNER: ${{ github.repository_owner }}
           GH_TOKEN: ${{ secrets.RELEASE_TOKEN }}
           IMAGE_NAME: ${{ env.IMAGE_NAME }}
-          TAG: ${{ github.ref_name }}
+          TAG: v1.0.0
         run: |
           echo "🔍 Checking if Docker image exists: $IMAGE_NAME:$TAG"
           
