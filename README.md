@@ -43,7 +43,7 @@ Producer VekRest: producer kafka via Spring Boot com Docker e Maven. **Módulo 4
 
 | Variável        | Descrição                        | Exemplo                              |
 |-----------------|----------------------------------|--------------------------------------|
-| `SERVER_PORT`   | Porta onde a aplicação irá rodar | `8084`                               |
+| `SERVER_PORT`   | Porta onde a aplicação irá rodar | `8083`                               |
 | `KAFKA_BROKERS` | Endereço do broker Kafka         | `kafka:9092, kafka:9093, kafka:9094` |
 | `GRAYLOG_HOST`  | Endereço do Graylog              | `graylog`                            |
 | `GRAYLOG_PORT`  | Porta do Graylog                 | `12201`                              |
@@ -61,11 +61,11 @@ docker pull vek03/vekrest-vekproducer:latest
 ```bash
 docker run -d \
   --name vekproducer \
-    -e SERVER_PORT=8084 \
+    -e SERVER_PORT=8083 \
     -e KAFKA_BROKERS=kafka:9092, kafka:9093, kafka:9094 \
     -e GRAYLOG_HOST=graylog \
     -e GRAYLOG_PORT=12201 \
-    -p 8084:8084 \
+    -p 8083:8083 \
   vek03/vekrest-vekproducer:latest
 ```
 
@@ -77,9 +77,9 @@ services:
     hostname: vekproducer
     container_name: vekproducer
     ports:
-      - "8084:8084"
+      - "8083:8083"
     environment:
-      SERVER_PORT: 8084
+      SERVER_PORT: 8083
       KAFKA_BROKERS: kafka:9092, kafka:9093, kafka:9094
       GRAYLOG_HOST: graylog
       GRAYLOG_PORT: 12201
@@ -325,7 +325,7 @@ git push origin <version>
 > Link para download da coleção Postman utilizada nos testes da API: [Postman Collection VekRest](https://web.postman.co/workspace/My-Workspace~e702bcc2-18e9-41e7-86d7-21df963c99df/folder/33703402-f59218e7-8804-436c-8866-2693c75b9eb6?action=share&source=copy-link&creator=33703402&ctx=documentation)
 
 > Alternativamente, você pode utilizar o Swagger UI para testar a API:
-[Swagger UI VekRest VekProducer Módulo 4](http://localhost:8084/vekrest/vekproducer/v1/swagger-ui/index.html) (rodando localmente)
+[Swagger UI VekRest VekProducer Módulo 4](http://localhost:8083/vekrest/vekproducer/v1/swagger-ui/index.html) (rodando localmente)
 
 ---
 

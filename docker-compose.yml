@@ -188,9 +188,9 @@ services:
 #    hostname: vekproducer
 #    container_name: vekproducer
 #    ports:
-#      - "8084:8084"
+#      - "8083:8083"
 #    environment:
-#      SERVER_PORT: 8084
+#      SERVER_PORT: 8083
 #      KAFKA_BROKERS: kafka1:19092, kafka2:19093, kafka3:19094
 #      GRAYLOG_HOST: graylog
 #      GRAYLOG_PORT: 12201
