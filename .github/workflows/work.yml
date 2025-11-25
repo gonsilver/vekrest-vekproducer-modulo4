@@ -1,4 +1,4 @@
-name: VekProducer CI/CD Workflow
+name: workCI/CD Workflow
 
 on:
   push:
