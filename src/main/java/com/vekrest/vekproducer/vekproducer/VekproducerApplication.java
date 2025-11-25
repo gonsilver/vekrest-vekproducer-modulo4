@@ -1,13 +1,21 @@
 package com.vekrest.vekproducer.vekproducer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class VekproducerApplication {
+public class VekproducerApplication implements CommandLineRunner {
+	private static final Logger LOG = LoggerFactory.getLogger(VekproducerApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(VekproducerApplication.class, args);
 	}
 
+	@Override
+	public void run(String... args) throws Exception {
+		LOG.info("VEKREST -> VEKPRODUCER - INICIALIZADO COM SUCESSO!");
+	}
 }
