@@ -311,7 +311,7 @@ git tag <version>
 git push origin <version>
 ```
 
-[![VekProducer CI/CD Workflow](https://github.com/VekRest/vekrest-vekproducer-modulo4.0/actions/workflows/main.yml/badge.svg)](https://github.com/VekRest/vekrest-vekproducer-modulo4.0/actions/workflows/main.yml)
+[![VekProducer CI/CD Workflow](https://github.com/VekRest/vekrest-vekproducer-modulo4/actions/workflows/main.yml/badge.svg)](https://github.com/VekRest/vekrest-vekproducer-modulo4/actions/workflows/main.yml)
 
 ---
 
