@@ -281,7 +281,7 @@ mvn clean install sonar:sonar -Dsonar.token={TOKEN_SONAR}
 
 ### Endpoint REST para enviar mensagens via HTTP POST
 ```bash
-POST http://localhost:8084/vekrest/vekproducer/v1/client
+POST http://localhost:8083/vekrest/vekproducer/v1/client
 ```
 
 ---
