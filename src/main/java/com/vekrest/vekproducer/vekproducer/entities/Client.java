@@ -1,7 +1,9 @@
 package com.vekrest.vekproducer.vekproducer.entities;
 
+import java.time.LocalDate;
+
 public record Client(
         String name,
-        String birth,
+        LocalDate birth,
         Address address
 ) {}
