@@ -5,8 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
+@EnableFeignClients(basePackages = "com.vekrest.vekproducer.vekproducer.integration.client")
 public class VekproducerApplication implements CommandLineRunner {
 	private static final Logger LOG = LoggerFactory.getLogger(VekproducerApplication.class);
 
