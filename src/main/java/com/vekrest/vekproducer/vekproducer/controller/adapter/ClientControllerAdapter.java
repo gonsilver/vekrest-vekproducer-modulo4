@@ -11,7 +11,7 @@ public class ClientControllerAdapter {
     public static Client cast(ClientRequest request) {
         return new Client(
                 request.name(),
-                request.birth(),
+                request.birth().toString(),
                 new Address(
                     request.address().cep(),
                     request.address().state()
