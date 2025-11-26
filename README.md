@@ -43,12 +43,12 @@ Producer VekRest: producer kafka via Spring Boot com Docker e Maven. **Módulo 4
 
 ## 1.2 ⚙ Variáveis de ambiente necessárias para rodar o container:
 
-| Variável        | Descrição                        | Exemplo                              |
-|-----------------|----------------------------------|--------------------------------------|
-| `SERVER_PORT`   | Porta onde a aplicação irá rodar | `8083`                               |
-| `KAFKA_BROKERS` | Endereço do broker Kafka         | `kafka:9092, kafka:9093, kafka:9094` |
-| `GRAYLOG_HOST`  | Endereço do Graylog              | `graylog`                            |
-| `GRAYLOG_PORT`  | Porta do Graylog                 | `12201`                              |
+| Variável        | Descrição                        | Exemplo                                    |
+|-----------------|----------------------------------|--------------------------------------------|
+| `SERVER_PORT`   | Porta onde a aplicação irá rodar | `8083`                                     |
+| `KAFKA_BROKERS` | Endereço do broker Kafka         | `kafka1:19092, kafka2:19093, kafka3:19094` |
+| `GRAYLOG_HOST`  | Endereço do Graylog              | `graylog`                                  |
+| `GRAYLOG_PORT`  | Porta do Graylog                 | `12201`                                    |
 
 ---
 
@@ -64,7 +64,7 @@ docker pull vek03/vekrest-vekproducer:latest
 docker run -d \
   --name vekproducer \
     -e SERVER_PORT=8083 \
-    -e KAFKA_BROKERS=kafka:9092, kafka:9093, kafka:9094 \
+    -e KAFKA_BROKERS=kafka1:19092, kafka2:19093, kafka3:19094 \
     -e GRAYLOG_HOST=graylog \
     -e GRAYLOG_PORT=12201 \
     -p 8083:8083 \
@@ -82,7 +82,7 @@ services:
       - "8083:8083"
     environment:
       SERVER_PORT: 8083
-      KAFKA_BROKERS: kafka:9092, kafka:9093, kafka:9094
+      KAFKA_BROKERS: kafka1:19092, kafka2:19093, kafka3:19094
       GRAYLOG_HOST: graylog
       GRAYLOG_PORT: 12201
     depends_on:
