@@ -183,60 +183,60 @@ services:
     networks:
       - vekrest-network
 
-  vekproducer:
-    image: vekrest/vekproducer:latest
-    hostname: vekproducer
-    container_name: vekproducer
-    ports:
-      - "8083:8083"
-    environment:
-      SERVER_PORT: 8083
-      KAFKA_BROKERS: kafka1:19092, kafka2:19093, kafka3:19094
-      GRAYLOG_HOST: graylog
-      GRAYLOG_PORT: 12201
-    depends_on:
-      mongodb:
-        condition: service_healthy
-      opensearch:
-        condition: service_healthy
-      graylog:
-        condition: service_started
-      zookeeper:
-        condition: service_healthy
-      kafka1:
-        condition: service_healthy
-      kafka2:
-        condition: service_healthy
-      kafka3:
-        condition: service_healthy
-    networks:
-      - vekrest-network
-
-  vekconsumer:
-    image: vekrest/vekconsumer:latest
-    hostname: vekconsumer
-    container_name: vekconsumer
-    environment:
-      KAFKA_BROKERS: kafka1:19092, kafka2:19093, kafka3:19094
-      GRAYLOG_HOST: graylog
-      GRAYLOG_PORT: 12201
-    depends_on:
-      mongodb:
-        condition: service_healthy
-      opensearch:
-        condition: service_healthy
-      graylog:
-        condition: service_started
-      zookeeper:
-        condition: service_healthy
-      kafka1:
-        condition: service_healthy
-      kafka2:
-        condition: service_healthy
-      kafka3:
-        condition: service_healthy
-    networks:
-      - vekrest-network
+#  vekproducer:
+#    image: vekrest/vekproducer:latest
+#    hostname: vekproducer
+#    container_name: vekproducer
+#    ports:
+#      - "8083:8083"
+#    environment:
+#      SERVER_PORT: 8083
+#      KAFKA_BROKERS: kafka1:19092, kafka2:19093, kafka3:19094
+#      GRAYLOG_HOST: graylog
+#      GRAYLOG_PORT: 12201
+#    depends_on:
+#      mongodb:
+#        condition: service_healthy
+#      opensearch:
+#        condition: service_healthy
+#      graylog:
+#        condition: service_started
+#      zookeeper:
+#        condition: service_healthy
+#      kafka1:
+#        condition: service_healthy
+#      kafka2:
+#        condition: service_healthy
+#      kafka3:
+#        condition: service_healthy
+#    networks:
+#      - vekrest-network
+#
+#  vekconsumer:
+#    image: vekrest/vekconsumer:latest
+#    hostname: vekconsumer
+#    container_name: vekconsumer
+#    environment:
+#      KAFKA_BROKERS: kafka1:19092, kafka2:19093, kafka3:19094
+#      GRAYLOG_HOST: graylog
+#      GRAYLOG_PORT: 12201
+#    depends_on:
+#      mongodb:
+#        condition: service_healthy
+#      opensearch:
+#        condition: service_healthy
+#      graylog:
+#        condition: service_started
+#      zookeeper:
+#        condition: service_healthy
+#      kafka1:
+#        condition: service_healthy
+#      kafka2:
+#        condition: service_healthy
+#      kafka3:
+#        condition: service_healthy
+#    networks:
+#      - vekrest-network
 
 #  vekconsumerapi:
 #    image: vekrest/vekconsumerapi:latest
@@ -263,6 +263,31 @@ services:
 #      kafka2:
 #        condition: service_healthy
 #      kafka3:
+#        condition: service_healthy
+#    networks:
+#      - vekrest-network
+
+#  veklambda:
+#    image: vekrest/veklambda:latest
+#    hostname: veklambda
+#    container_name: veklambda
+#    restart: unless-stopped
+#    environment:
+#      KAFKA_BROKERS: kafka1:19092
+#      KAFKA_REPLICAS: 1
+#      KAFKA_PARTITIONS: 3
+#      GRAYLOG_HOST: graylog
+#      GRAYLOG_PORT: 12201
+#    depends_on:
+#      mongodb:
+#        condition: service_healthy
+#      opensearch:
+#        condition: service_healthy
+#      graylog:
+#        condition: service_started
+#      zookeeper:
+#        condition: service_healthy
+#      kafka1:
 #        condition: service_healthy
 #    networks:
 #      - vekrest-network
