@@ -6,6 +6,7 @@ import com.vekrest.vekproducer.vekproducer.integration.interfaces.VekSecurityInt
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.Message;
@@ -25,7 +26,8 @@ public class ClientEventProducer {
 
     private final boolean veksecurityApiEnabled;
     private final VekSecurityIntegration vekSecurityIntegration;
-    private Token vekSecurityToken;
+    private String veksecurityApiUsername;
+    private String veksecurityApiPassword;
 
     public ClientEventProducer(
             KafkaTemplate<String, Client> kafkaTemplate,
@@ -37,21 +39,18 @@ public class ClientEventProducer {
     ) {
         this.topic = topic;
         this.kafkaTemplate = kafkaTemplate;
-        this.veksecurityApiEnabled = veksecurityApiEnabled;
         this.vekSecurityIntegration = vekSecurityIntegration;
-
-        if(this.veksecurityApiEnabled){
-            setTokenFromVekSecurityApi(veksecurityApiUsername, veksecurityApiPassword);
-        }
+        this.veksecurityApiEnabled = veksecurityApiEnabled;
+        this.veksecurityApiUsername = veksecurityApiUsername;
+        this.veksecurityApiPassword = veksecurityApiPassword;
     }
 
-    private Token setTokenFromVekSecurityApi(String username, String password) {
-        this.vekSecurityToken = vekSecurityIntegration.getToken(
+    @Cacheable(value = "veksecurity-token-cache", key = "username")
+    private Token getTokenFromVekSecurityApi(String username, String password) {
+        return vekSecurityIntegration.getToken(
                 username,
                 password
         );
-
-        return this.vekSecurityToken;
     }
 
     public void send(Client client) throws ExecutionException, InterruptedException, TimeoutException {
@@ -59,11 +58,14 @@ public class ClientEventProducer {
 
         if(this.veksecurityApiEnabled){
             LOG.info("Adicionando token de segurança da VekSecurity na mensagem Kafka.");
+
+            final String token = getTokenFromVekSecurityApi(this.veksecurityApiUsername, this.veksecurityApiPassword).token();
+
             Message<Client> message = MessageBuilder
                     .withPayload(client)
                     .setHeader(KafkaHeaders.TOPIC, topic)
                     .setHeader(KafkaHeaders.KEY, UUID.randomUUID().toString())
-                    .setHeader("TOKEN", this.vekSecurityToken.token())
+                    .setHeader("TOKEN", token)
                     .build();
 
             kafkaTemplate.send(message)

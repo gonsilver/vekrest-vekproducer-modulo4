@@ -23,6 +23,21 @@ services:
     networks:
       - vekrest-network
 
+  redis:
+    image: redis:latest
+    hostname: redis
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    networks:
+      - vekrest-network
+
   opensearch:
     image: opensearchproject/opensearch:2.4.0
     hostname: opensearch
@@ -289,5 +304,28 @@ services:
 #        condition: service_healthy
 #      kafka1:
 #        condition: service_healthy
+#    networks:
+#      - vekrest-network
+
+#  veksecurity:
+#    image: vekrest/veksecurity:latest
+#    hostname: veksecurity
+#    container_name: veksecurity
+#    restart: unless-stopped
+#    ports:
+#      - "8081:8081"
+#    environment:
+#      SERVER_PORT: 8081
+#      SECRET_KEY: "vekrest!A$9zLq#2vNf@eR6tYpWmZcXbGdQh"
+#      MONGODB_URI: mongodb://mongodb:27017/vekrest?serverSelectionTimeoutMs=15000&connectTimeoutMS=15000
+#      GRAYLOG_HOST: graylog
+#      GRAYLOG_PORT: 12201
+#    depends_on:
+#      mongodb:
+#        condition: service_healthy
+#      opensearch:
+#        condition: service_healthy
+#      graylog:
+#        condition: service_started
 #    networks:
 #      - vekrest-network
